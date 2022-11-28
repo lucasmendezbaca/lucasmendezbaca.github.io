@@ -1,0 +1,355 @@
+:root {
+    --color1: #222831;
+    --color2: #393e46;
+    --color3: #00adb5;
+    --color4: #eeeeee;
+    --sizeh1: 60px;
+}
+
+body {
+    background-color: var(--color1);
+    color: white;
+    margin: 0px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+.boton {
+    text-shadow: 1px 3px 3px black;
+    background: var(--color2);
+    width: fit-content;
+    padding: 8px 20px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.boton--activo {
+    background: var(--color3);
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.titulo {
+    font-size: var(--sizeh1);
+}
+
+.titulo--azul {
+    color: var(--color3);
+}
+
+.container {
+    max-width: 1000px;
+    padding: 0px 20px;
+    margin: 0px auto;
+}
+
+/* Menu hamburguesa */
+#menu__hamburguesa {
+    display: none;
+}
+
+#menu__hamburguesa .line {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 4px;
+    transition: all 0.15s;
+}
+
+#menu__hamburguesa.trans .line:nth-child(1) {
+    transform: rotate(-45deg) translate(-7px, 0px);
+}
+
+#menu__hamburguesa.trans .line:nth-child(2) {
+    height: 0;
+}
+
+#menu__hamburguesa.trans .line:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, 0px);
+}
+/* Final menu hamburguesa */
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu__container {
+    padding: 30px 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu__logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu__links {
+    display: flex;
+    list-style: none;
+    padding: 0px;
+}
+
+.menu__links li {
+    margin: 0px 10px;
+}
+
+.home_content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.home_content__img {
+    position: relative;
+    min-height: 510px;
+}
+
+.home_content__img__personaje {
+    z-index: 9;
+    position: absolute;
+    bottom: 0;
+}
+
+.home_content__img__circulito,
+.abaut__imgs__cuadrado {
+    opacity: 0.5;
+}
+
+/* Seccion Abaut Me */
+
+.abaut {
+    display: flex;
+    justify-content: space-between;
+}
+
+.abaut__imgs {
+    position: relative;
+}
+
+.abaut__text {
+    flex-basis: 36%;
+    order: 2;
+}
+
+.abaut__imgs {
+    min-height: 510px;
+    order: 1;
+}
+
+.abaut__imgs__personaje {
+    position: absolute;
+    left: calc(50% - 207px);
+    bottom: 0;
+    z-index: 9;
+}
+
+/* Seccion Proyectos */
+.works {
+    margin-top: 100px;
+    padding: 80px 120px;
+    position: relative;
+    background-color: var(--color1);
+}
+
+.works::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(img/cuadrado_abaut.svg);
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.works h2,
+.works .botones,
+.proyectos {
+    position: relative;
+    z-index: 9;
+}
+
+.proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.proyecto {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    flex-basis: calc((100% - 40px) / 3);
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.proyecto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color2);
+    z-index: 1;
+    opacity: 0.7;
+    background: inherit;
+    box-shadow: inset 0 0 2000px rgba(123, 123, 123, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.proyecto img {
+    width: 100%;
+    position: relative;
+    z-index: 9;
+}
+
+/* Sección Skills */
+.skills__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill {
+    flex-basis: calc((100% - 60px) / 4);
+    flex-grow: 1;
+}
+
+.skill__svg {
+    text-align: center;
+}
+
+.skills svg {
+    width: 200px;
+    height: 200px;
+    /* left: 50%;
+    top: 50%; */
+}
+
+.skill img{
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    max-height: 40px;
+}
+
+/* MediaQuerys */
+/* Mediaquery 1035px */
+@media screen and (max-width: 1035px) {
+    .proyecto {
+        flex-basis: calc((100% - 20px) / 2);
+    }
+
+    .abaut {
+        flex-direction: column;
+    }
+
+    .abaut__text {
+        order: 1;
+    }
+
+    .abaut__imgs {
+        text-align: center;
+        order: 2;
+    }
+}
+
+/* Mediaquery 800px */
+@media screen and (max-width: 800px) {
+    .titulo,
+    .titulo--azul {
+        text-align: center;
+    }
+
+    .home_content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .botones {
+        justify-content: center;
+    }
+
+    .proyecto {
+        flex-basis: 100%;
+    }
+}
+
+/* Mediaquery 620px */
+@media screen and (max-width: 620px) {
+    .abaut__imgs {
+        min-height: 0px;
+    }
+
+    .abaut__imgs__cuadrado {
+        width: 100%;
+    }
+
+    .abaut__imgs__personaje {
+        left: calc(50% - 35%);
+        width: 70%;
+        bottom: 12%;
+    }
+
+    .works {
+        padding: 80px 20px;
+    }
+}
+
+/* Mediaquery 500px */
+@media screen and (max-width: 500px) {
+    #menu__hamburguesa {
+        width: 20px;
+        height: 20px;
+        /* padding: 12px;
+        background-color: rgb(216, 230, 23);
+        border-radius: 50%; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .menu__container {
+        flex-direction: column;
+        padding: 0px;
+    }
+
+    .menu__links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu__links {
+        display: none;
+    }
+
+    .mostrar {
+        display: block;
+        flex-basis: 100%;
+    }
+}
