@@ -6,6 +6,20 @@ hamburguesa.onclick = function() {
     this.classList.toggle('trans');
     menuLinks.classList.toggle('mostrar');
 };
+
+
+// ocultar el menu en el movil al hacer click en un link
+const menu_links = document.getElementsByClassName('menu__link');
+
+
+for (let i = 0; i < menu_links.length; i++) {
+    menu_links[i].addEventListener('click', function() {
+        hamburguesa.classList.remove('trans');
+        menuLinks.classList.remove('mostrar');
+    }); 
+}
+
+
 // Final menu hamburguesa
 
 function draw(ring, text) {
@@ -46,12 +60,33 @@ function draw(ring, text) {
 }
 
 
-window.addEventListener('load', function() {
-    var skills = document.getElementsByClassName('skill');
-    for (var i = 0; i < skills.length; i++) {
-        var skill = skills[i];
-        var ring = skill.getElementsByClassName('ring')[0];
-        var text = skill.getElementsByTagName('text')[0];
-        draw(ring, text);
+// window.addEventListener('scroll', function() {
+//     var skills = document.getElementsByClassName('skill');
+//     for (var i = 0; i < skills.length; i++) {
+//         var skill = skills[i];
+//         var ring = skill.getElementsByClassName('ring')[0];
+//         var text = skill.getElementsByTagName('text')[0];
+//         draw(ring, text);
+//     }
+// });
+
+const skills = document.getElementsByClassName('skill');
+
+var contador = 0;
+
+function showSection(){
+    let scrollTop = document.documentElement.scrollTop;
+    for(var i=0; i < skills.length; i++){
+        let height = skills[i].offsetTop;
+        if(height - 600 < scrollTop && contador == 0){
+            var skill = skills[i];
+            var ring = skill.getElementsByClassName('ring')[0];
+            var text = skill.getElementsByTagName('text')[0];
+            draw(ring, text);
+        }
     }
-});
+
+    contador = 1;
+}
+
+window.addEventListener('scroll', showSection);
