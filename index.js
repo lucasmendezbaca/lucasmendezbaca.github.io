@@ -59,34 +59,19 @@ function draw(ring, text) {
     ring.setAttribute('transform', 'translate(' + r + ', ' + r + ')');
 }
 
+contadorAnimacion = 0;
+window.addEventListener('scroll', animateSkills);
+function animateSkills() {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-// window.addEventListener('scroll', function() {
-//     var skills = document.getElementsByClassName('skill');
-//     for (var i = 0; i < skills.length; i++) {
-//         var skill = skills[i];
-//         var ring = skill.getElementsByClassName('ring')[0];
-//         var text = skill.getElementsByTagName('text')[0];
-//         draw(ring, text);
-//     }
-// });
-
-const skills = document.getElementsByClassName('skill');
-
-var contador = 0;
-
-function showSection(){
-    let scrollTop = document.documentElement.scrollTop;
-    for(var i=0; i < skills.length; i++){
-        let height = skills[i].offsetTop;
-        if(height - 600 < scrollTop && contador == 0){
+    if (clientHeight + scrollTop >= scrollHeight - 250 && contadorAnimacion == 0) {
+        var skills = document.getElementsByClassName('skill');
+        for (var i = 0; i < skills.length; i++) {
             var skill = skills[i];
             var ring = skill.getElementsByClassName('ring')[0];
             var text = skill.getElementsByTagName('text')[0];
             draw(ring, text);
         }
+        contadorAnimacion++;
     }
-
-    contador = 1;
 }
-
-window.addEventListener('scroll', showSection);
