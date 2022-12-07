@@ -256,6 +256,13 @@ a {
     max-height: 40px;
 }
 
+/* Footer */
+.footer {
+    padding: 60px 0px;
+    text-align: center;
+}
+/* Fin Footer */
+
 /* MediaQuerys */
 /* Mediaquery 1035px */
 @media screen and (max-width: 1035px) {

@@ -64,7 +64,7 @@ window.addEventListener('scroll', animateSkills);
 function animateSkills() {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-    if (clientHeight + scrollTop >= scrollHeight - 250 && contadorAnimacion == 0) {
+    if (clientHeight + scrollTop >= scrollHeight - 400 && contadorAnimacion == 0) {
         var skills = document.getElementsByClassName('skill');
         for (var i = 0; i < skills.length; i++) {
             var skill = skills[i];
